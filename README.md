@@ -15,4 +15,4 @@
 
 ## 开源协议
 
-<a href="blob/main/LICENSE">GPL-3.0 license</a>
+<a href="LICENSE">GPL-3.0 license</a>
