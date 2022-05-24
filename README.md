@@ -3,7 +3,7 @@
 ## 使用方法
 
 - 等待补退选开始
-- 在`config.yaml`中填入用户名和密码，并在`candidate`字段下设置候选课程
+- 在`config.yaml`中填入用户名和密码，并在`candidates`字段下设置候选课程
 - 使用`python3`运行`supply.py`脚本，根据`ImportError`（如果有的话）补齐缺少的包
 - 等待程序执行或按`Ctrl-C`退出
 
