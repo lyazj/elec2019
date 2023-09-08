@@ -35,24 +35,22 @@ class HelperPage:
     def __init__(self):
         try:
             self.loadSession()
-            logging.info('try saved session: ' + self.sessionDumpfile)
             page = self.getPage()
             self.parsePage(page)
             logging.info('use saved session: ' + self.sessionDumpfile)
         except Exception:
-            logging.info('new session logging in...')
             page = self.getPageFromLogin()
             self.parsePage(page)
             logging.info('new session logged in')
         self.page = page
-        self.dumpSession()
-        logging.info('session saved as: ' + self.sessionDumpfile)
 
     def loadSession(self):
         self.session = pickle.load(open(self.sessionDumpfile, 'rb'))
+        logging.info('try saved session: ' + self.sessionDumpfile)
 
     def dumpSession(self):
         pickle.dump(self.session, open(self.sessionDumpfile, 'wb'))
+        logging.info('session saved as: ' + self.sessionDumpfile)
 
     def getPage(self):
         return Page(self.session.getDocument(self.pageUrl))
@@ -76,6 +74,7 @@ class HelperPage:
         self.personal = personal
 
     def getPageFromLogin(self):
+        logging.info('new session logging in...')
         loginPage = login.LoginPage()
         submission = loginPage.login()
         self.session = loginPage.session

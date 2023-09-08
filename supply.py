@@ -229,3 +229,7 @@ if __name__ == '__main__':
         sleepTime = config.retryWaiting
         logging.info('sleeping for ' + str(sleepTime) + ' seconds...')
         time.sleep(sleepTime)
+    try:
+        supplyPage.helperPage.dumpSession()
+    except:
+        pass
